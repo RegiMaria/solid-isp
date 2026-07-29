@@ -1,4 +1,4 @@
-# ISP — Interface Segregation Principle
+# ISP - Interface Segregation Principle
 
 Projeto didático em Python demonstrando o **Princípio da Segregação de Interface** (o "I" de SOLID), baseado no cenário de um sistema de CRM: cadastro de **Contratos**, **Produtos** e **Usuários**, cada um com necessidades distintas de persistência, log e notificação.
 
