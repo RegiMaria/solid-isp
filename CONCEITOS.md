@@ -6,11 +6,11 @@ O **I** de SOLID.
 
 > Clientes não devem ser forçados a depender de métodos que não usam.
 
-Aqui, **"clientes"** são as classes que implementam uma interface. Quando uma classe implementa uma interface, ela é **obrigada** a implementar todos os métodos definidos nessa interface — mesmo que alguns desses métodos não façam sentido nenhum para o comportamento real daquela classe.
+Aqui, **"clientes"** são as classes que implementam uma interface. Quando uma classe implementa uma interface, ela é **obrigada** a implementar todos os métodos definidos nessa interface, mesmo que alguns desses métodos não façam sentido nenhum para o comportamento real daquela classe.
 
 ## O problema: interfaces "gordas" (fat interfaces)
 
-Quando uma única interface concentra métodos de responsabilidades diferentes, toda classe que precisar de **apenas uma parte** desses métodos é forçada a implementar os outros também — geralmente com implementações vazias, `pass`, ou lançando erros como `NotImplementedError`.
+Quando uma única interface concentra métodos de responsabilidades diferentes, toda classe que precisar de **apenas uma parte** desses métodos é forçada a implementar os outros também, geralmente com implementações vazias, `pass`, ou lançando erros como `NotImplementedError`.
 
 Isso gera:
 
@@ -24,18 +24,18 @@ Em vez de uma interface única com N métodos, criamos **várias interfaces pequ
 
 ```
 Interface única (viola o ISP)          Interfaces segregadas (respeita o ISP)
-┌─────────────────────┐                ┌────────────────┐
-│ Cadastro             │                │ CadastroInterface│
-│  - salvar()           │               │  - salvar()      │
-│  - registrar_log()     │              └────────────────┘
-│  - enviar_notificacao() │             ┌────────────────┐
-└─────────────────────┘                │ LogInterface     │
-                                        │  - registrar_log()│
-                                        └────────────────┘
-                                        ┌────────────────┐
-                                        │ NotificacaoInterface│
+┌────────────────────────┐                ┌──────────────────┐
+│ Cadastro               │                │ CadastroInterface│
+│  - salvar()            │                │  - salvar()      │
+│  - registrar_log()     │                └──────────────────┘
+│  - enviar_notificacao()│                ┌────────────────────┐
+└────────────────────────┘                │ LogInterface       │
+                                          │  - registrar_log() │
+                                          └────────────────────┘
+                                        ┌────────────────────────┐
+                                        │ NotificacaoInterface   │
                                         │  - enviar_notificacao()│
-                                        └────────────────┘
+                                        └────────────────────────┘
 ```
 
 ## Palavra de ordem
@@ -49,7 +49,7 @@ Interface única (viola o ISP)          Interfaces segregadas (respeita o ISP)
 
 Diferente de linguagens como PHP, Java ou C#, Python não tem uma palavra-chave `interface`. O jeito idiomático de representar uma interface em Python é através de **classes abstratas** (`abc.ABC` + `@abstractmethod`), ou, em casos mais flexíveis, através de **Protocols** (`typing.Protocol`, tipagem estrutural).
 
-Neste projeto usamos `ABC`, por deixar o contrato mais explícito e didático — igual a uma `interface` de outras linguagens.
+Neste projeto usamos `ABC`, por deixar o contrato mais explícito e didático, igual a uma `interface` de outras linguagens.
 
 ## Relação com os outros princípios SOLID
 
