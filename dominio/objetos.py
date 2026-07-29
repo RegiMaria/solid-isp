@@ -1,7 +1,8 @@
 # ======================================================
 # 01 - Primeiro objeto de dominio do CRM. Guarda apenas os dados
 # essenciais do contrato (id, cliente e valor), sem logica de
-# negocio
+# negocio. O importante é como as interfaces serão consumidas
+# por classes distintas
 # ======================================================
 
 from datetime import datetime
@@ -13,5 +14,5 @@ class Contrato:
         self.valor = valor
 
     def __repr__(self):
+        """Define como o Contrato aparece em print() ou no terminal interativo."""
         return f"Contrato(id={self.id}, cliente={self.cliente!r}, valor={self.valor})"
-
