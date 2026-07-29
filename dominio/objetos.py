@@ -1,3 +1,9 @@
+# ======================================================
+# 01 - Primeiro objeto de dominio do CRM. Guarda apenas os dados
+# essenciais do contrato (id, cliente e valor), sem logica de
+# negocio
+# ======================================================
+
 from datetime import datetime
 
 class Contrato:
