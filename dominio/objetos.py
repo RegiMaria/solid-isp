@@ -26,3 +26,12 @@ class Log:
     def __repr__(self):
         """Define como o Log aparece em print() ou no terminal interativo."""
         return f"Log(mensagem={self.mensagem!r}, criado_em={self.criado_em})"
+
+class Notificacao:
+    def __init__(self, destinatario, mensagem):
+        self.destinatario = destinatario
+        self.mensagem = mensagem
+
+    def __repr__(self):
+        """Define como a Notificacao aparece em print() ou no terminal interativo."""
+        return f"Notificacao(destinatario={self.destinatario!r}, mensagem={self.mensagem!r})"
